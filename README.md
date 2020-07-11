@@ -1,1 +1,1 @@
-# CoviDoc : User Web App
+# CoviDoc : Admin Web App
