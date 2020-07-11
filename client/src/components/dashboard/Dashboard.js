@@ -7,8 +7,8 @@ import Sidebar from '../layoutDashboard/sidebar/Sidebar';
 import Main from '../layoutDashboard/Main';
 import PrivateRoute from '../private-route/PrivateRoute';
 import Patients from './patients/Patients';
-import StatusUpdate from './statusUpdate/StatusUpdate';
-import UpdateHistory from './updateHistory/UpdateHistory';
+import UpdateStatus from './updateStatus/UpdateStatus';
+import StatusHistory from './statusHistory/StatusHistory';
 
 class Dashboard extends Component {
   onLogoutClick = (e) => {
@@ -25,8 +25,8 @@ class Dashboard extends Component {
         <Switch>
           <PrivateRoute exact path='/dashboard' component={Main} />
           <PrivateRoute exact path='/dashboard/patients' component={Patients} />
-          <PrivateRoute exact path='/dashboard/update-status' component={StatusUpdate} />
-          <PrivateRoute exact path='/dashboard/status-history' component={UpdateHistory} />
+          <PrivateRoute exact path='/dashboard/update-status' component={UpdateStatus} />
+          <PrivateRoute exact path='/dashboard/status-history' component={StatusHistory} />
         </Switch>
         <div className='row'>
           <div className='landing-copy col s12 center-align'>
