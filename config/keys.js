@@ -1,4 +1,5 @@
 module.exports = {
-  mongoURI: "YOUR_MONGO_URI_HERE",
-  secretOrKey: "secret"
+  mongoURI:
+    'mongodb+srv://test:test123@cluster0.gh5so.azure.mongodb.net/<dbname>?retryWrites=true&w=majority',
+  secretOrKey: 'secret',
 };
