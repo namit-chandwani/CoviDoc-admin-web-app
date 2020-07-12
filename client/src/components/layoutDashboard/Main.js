@@ -13,17 +13,7 @@ const Main = () => {
   return (
     <Container>
       <Nav />
-      <div>
-        <h1
-          style={{
-            fontSize: '72px',
-            fontWeight: '500',
-            textAlign: 'center',
-          }}
-        >
-          Admin Dashboard
-        </h1>
-      </div>
+      <div></div>
     </Container>
   );
 };

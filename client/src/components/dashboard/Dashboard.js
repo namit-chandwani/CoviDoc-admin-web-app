@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import Sidebar from '../layoutDashboard/sidebar/Sidebar';
-import Main from '../layoutDashboard/Main';
 import PrivateRoute from '../private-route/PrivateRoute';
 import Patients from './patients/Patients';
 import UpdateStatus from './updateStatus/UpdateStatus';
 import StatusHistory from './statusHistory/StatusHistory';
+import NewPatients from './NewPatients';
 
 class Dashboard extends Component {
   onLogoutClick = (e) => {
@@ -17,13 +17,11 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { user } = this.props.auth;
-
     return (
       <div style={{ height: '75vh' }} className='container valign-wrapper'>
         <Sidebar />
         <Switch>
-          <PrivateRoute exact path='/dashboard' component={Main} />
+          <PrivateRoute exact path='/dashboard' component={NewPatients} />
           <PrivateRoute exact path='/dashboard/patients' component={Patients} />
           <PrivateRoute
             exact
@@ -45,7 +43,7 @@ class Dashboard extends Component {
                 letterSpacing: '1.5px',
                 marginTop: '1rem',
                 marginBottom: '28rem',
-                marginLeft: '-30px',
+                marginLeft: '90px',
               }}
               onClick={this.onLogoutClick}
               className='btn btn-large waves-effect waves-light hoverable blue accent-3'

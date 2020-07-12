@@ -13,11 +13,11 @@ const Container = styled.div`
 `;
 const LogoImg = styled.img`
   max-height: 20px;
-  margin: -18.3rem 250px 0 -200px;
+  margin: 9rem 70px 0 -200px;
 `;
 const ProfileImg = styled.img`
   height: 5rem;
-  margin: -18.3rem 0 0 530px;
+  margin: 8.5rem -200px 0 630px;
 `;
 
 const Nav = () => {

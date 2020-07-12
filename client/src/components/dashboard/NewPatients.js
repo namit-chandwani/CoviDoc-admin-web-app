@@ -3,16 +3,17 @@ import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 // import PatientListItem from './PatientListItem';
 import styled from 'styled-components';
+import Main from '../layoutDashboard/Main';
 
 const Container = styled.div`
-  width: auto;
+  width: 64rem;
   margin-left: 2rem;
   position: relative;
   padding: 0 4rem;
   margin-top: 3rem;
 `;
 
-class Patients extends Component {
+class NewPatients extends Component {
   state = {
     patientList: [],
   };
@@ -27,7 +28,7 @@ class Patients extends Component {
           age: 20,
           gender: 'Male',
           score: '98.48',
-          status: 'Approved',
+          approve: 'Approved',
         },
         {
           id: 2,
@@ -36,7 +37,34 @@ class Patients extends Component {
           age: 20,
           gender: 'Male',
           score: '88.72',
-          status: 'Approved',
+          approve: 'Approved',
+        },
+        {
+          id: 2,
+          date: '12-07-2020',
+          name: 'Yash Narang',
+          age: 20,
+          gender: 'Male',
+          score: '84.28',
+          approve: 'Approved',
+        },
+        {
+          id: 2,
+          date: '12-07-2020',
+          name: 'Adarsh Nandanwar',
+          age: 20,
+          gender: 'Male',
+          score: '81.34',
+          approve: 'Approved',
+        },
+        {
+          id: 2,
+          date: '12-07-2020',
+          name: 'Garima Sharma',
+          age: 19,
+          gender: 'Female',
+          score: '71.61',
+          approve: 'Approved',
         },
       ],
     });
@@ -59,10 +87,16 @@ class Patients extends Component {
       { Header: 'Age', accessor: 'age', width: 80 },
       { Header: 'Gender', accessor: 'gender', width: 90 },
       { Header: 'Score', accessor: 'score', width: 90 },
-      { Header: 'Status', accessor: 'status', width: 90 },
+      {
+        Header: 'Approve',
+        accessor: 'approve',
+        width: 90,
+        Cell: (cell) => <button value={cell.accessor}>Approve</button>,
+      },
     ];
     return (
       <Container>
+        <Main />
         <div>
           <h1
             style={{
@@ -71,7 +105,7 @@ class Patients extends Component {
               margin: '3rem 0 2rem -1.9rem',
             }}
           >
-            Patient List
+            Latest Patient List
           </h1>
         </div>
         {/* { this.state.patientList.map((patient) => (
@@ -88,4 +122,4 @@ class Patients extends Component {
   }
 }
 
-export default Patients;
+export default NewPatients;
