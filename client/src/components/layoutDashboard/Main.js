@@ -16,9 +16,9 @@ const Main = () => {
       <div>
         <h1
           style={{
-            fontSize: '32px',
+            fontSize: '72px',
             fontWeight: '500',
-            margin: '-2rem 0 0 -1.9rem',
+            textAlign: 'center',
           }}
         >
           Admin Dashboard

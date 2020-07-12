@@ -9,13 +9,15 @@ const Container = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 3rem;
+  position: relative;
 `;
 const LogoImg = styled.img`
-  max-height: 16px;
+  max-height: 20px;
+  margin: -18.3rem 250px 0 -200px;
 `;
 const ProfileImg = styled.img`
-  height: 2rem;
-  margin-right: -1.5rem;
+  height: 5rem;
+  margin: -18.3rem 0 0 530px;
 `;
 
 const Nav = () => {

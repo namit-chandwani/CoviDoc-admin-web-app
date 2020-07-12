@@ -25,8 +25,16 @@ class Dashboard extends Component {
         <Switch>
           <PrivateRoute exact path='/dashboard' component={Main} />
           <PrivateRoute exact path='/dashboard/patients' component={Patients} />
-          <PrivateRoute exact path='/dashboard/update-status' component={UpdateStatus} />
-          <PrivateRoute exact path='/dashboard/status-history' component={StatusHistory} />
+          <PrivateRoute
+            exact
+            path='/dashboard/update-status'
+            component={UpdateStatus}
+          />
+          <PrivateRoute
+            exact
+            path='/dashboard/status-history'
+            component={StatusHistory}
+          />
         </Switch>
         <div className='row'>
           <div className='landing-copy col s12 center-align'>
@@ -36,6 +44,8 @@ class Dashboard extends Component {
                 borderRadius: '3px',
                 letterSpacing: '1.5px',
                 marginTop: '1rem',
+                marginBottom: '28rem',
+                marginLeft: '-30px',
               }}
               onClick={this.onLogoutClick}
               className='btn btn-large waves-effect waves-light hoverable blue accent-3'
