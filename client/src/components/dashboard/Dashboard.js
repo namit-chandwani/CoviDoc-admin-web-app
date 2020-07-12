@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import Sidebar from '../layoutDashboard/sidebar/Sidebar';
 import Main from '../layoutDashboard/Main';
+import PrivateRoute from '../private-route/PrivateRoute';
+import Patients from './patients/Patients';
+import UpdateStatus from './updateStatus/UpdateStatus';
+import StatusHistory from './statusHistory/StatusHistory';
 
 class Dashboard extends Component {
   onLogoutClick = (e) => {
@@ -17,7 +22,12 @@ class Dashboard extends Component {
     return (
       <div style={{ height: '75vh' }} className='container valign-wrapper'>
         <Sidebar />
-        <Main />
+        <Switch>
+          <PrivateRoute exact path='/dashboard' component={Main} />
+          <PrivateRoute exact path='/dashboard/patients' component={Patients} />
+          <PrivateRoute exact path='/dashboard/update-status' component={UpdateStatus} />
+          <PrivateRoute exact path='/dashboard/status-history' component={StatusHistory} />
+        </Switch>
         <div className='row'>
           <div className='landing-copy col s12 center-align'>
             <button
