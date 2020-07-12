@@ -37,7 +37,7 @@ If the installation was successful, you should be able to run the following comm
 
     $ git clone https://github.com/namit-chandwani/CoviDoc-admin-web-app
     $ cd CoviDoc-admin-web-app
-    $ npm install
+    $ npm install && npm run client-install
 
 ## Running the project
 
