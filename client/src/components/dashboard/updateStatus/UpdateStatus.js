@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 
 const Container = styled.div`
@@ -12,7 +15,7 @@ const Container = styled.div`
 class UpdateStatus extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       covidPatientCount: 0,
       totalPatientCount: 0,
       PPELevel: 0,
@@ -24,7 +27,25 @@ class UpdateStatus extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.handleAcceptingCovidPatientsChange = this.handleAcceptingCovidPatientsChange.bind(this);
   }
+
+  // NOT WORKING
+  handleCheckboxChange = (event) => {
+    const value = event.target.value;
+    this.setState({
+      ...this.state,
+      [event.target.name]: !value
+    });
+  };
+
+  // NOT WORKING
+  handleAcceptingCovidPatientsChange = (event) => {
+    this.setState({
+      acceptingCovidPatientsChange: !this.state.acceptingCovidPatientsChange
+    });
+  };
 
   handleChange(event) {
     const value = event.target.value;
@@ -35,7 +56,7 @@ class UpdateStatus extends Component {
   }
 
   handleSubmit(event) {
-    alert(this.state);
+    alert(this.state.acceptingCovidPatients);
     event.preventDefault();
   }
 
@@ -52,40 +73,76 @@ class UpdateStatus extends Component {
           Update Status
         </h1>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            COVID Patient Count:
-          <input type="text" name="covidPatientCount" value={this.state.covidPatientCount} onChange={this.handleChange} />
-          </label>
 
-          <label>
-            Total Patient Count:
+          <div>
+            <label>
+              COVID Patient Count
+            <input type="text" name="covidPatientCount" value={this.state.covidPatientCount} onChange={this.handleChange} />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              Total Patient Count
             <input type="text" name="totalPatientCount" value={this.state.totalPatientCount} onChange={this.handleChange} />
-          </label>
+            </label>
+          </div>
 
-          <label>
-            PPE Level:
+          <div>
+            <label>
+              PPE Level
             <input type="text" name="PPELevel" value={this.state.PPELevel} onChange={this.handleChange} />
-          </label>
+            </label>
+          </div>
 
-          <label>
-            Accepting Covid Patients:
-            <input type="checkbox" checked={this.state.acceptingCovidPatients} onChange={this.handleChange} />
-          </label>
+          <div>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={this.state.acceptingCovidPatients}
+                  onChange={this.handleAcceptingCovidPatientsChange}
+                  name="acceptingCovidPatients"
+                  color="primary"
+                />
+              }
+              label="Accepting Covid Patients"
+            />
+          </div>
 
-          <label>
-            Accepting Non Covid Patients:
-            <input type="checkbox" checked={this.state.acceptingNonCovidPatients} onChange={this.handleChange} />
-          </label>
+          <div>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={this.props.acceptingNonCovidPatients}
+                  onChange={this.handleCheckboxChange}
+                  name="acceptingNonCovidPatients"
+                  color="primary"
+                  />
+              }
+              label="Accepting Non Covid Patients"
+            />
+          </div>
 
-          <label>
-            Tests Available:
+          <div>
+            <label>
+              Tests Available
             <input type="text" name="testsAvailableCount" value={this.state.testsAvailableCount} onChange={this.handleChange} />
-          </label>
+            </label>
+          </div>
 
-          <label>
-            Offers Full Medical Care:
-            <input type="checkbox" checked={this.state.offersFullMedicalCare} onChange={this.handleChange} />
-          </label>
+          <div>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={this.props.offersFullMedicalCare}
+                  onChange={this.handleCheckboxChange}
+                  name="offersFullMedicalCare"
+                  color="primary"
+                />
+              }
+              label="Offers Full Medical Care"
+            />
+          </div>
 
           <input className="btn btn-primary" type="submit" value="Submit" />
         </form>
